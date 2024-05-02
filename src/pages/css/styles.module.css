@@ -1,0 +1,32 @@
+/* homeStyles.css */
+*{
+    padding: 0;
+    margin: 0;
+}
+.centeredContent {
+    text-align: center;
+    margin-top: 10%;
+    max-width: 800px;
+    margin-left: 23%;
+    font-family: "Inter", sans-serif;
+    color: #FCBE1F;
+  } 
+  .image {
+    width: 20%; /* Adjust width as needed */
+    height: 20%; /* Adjust height as needed */
+    object-fit: contain;
+  }
+
+  .let{
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FCBE1F;
+    font-weight: bolder;
+    margin-top: 3%;
+    color: white;
+  }
+  
+  
+  
