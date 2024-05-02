@@ -1,24 +1,32 @@
-import FrameComponent from "../components/FrameComponent";
-import styles from "./css/home.module.css";
-
+import React from 'react';
+import Header from '../components/navigation/topnav/Header';
+import img from '../assets/home.png';
+import styles from './css/styles.module.css'; 
+import { Link } from 'react-router-dom'; // Correct import for Link
 
 const Home = () => {
   return (
-    <div className={styles.macbookPro142}>
-      <div className={styles.syntaxLogo}>
-        <p className={styles.syntax}>SYNTAX</p>
-        <p className={styles.logo}>LOGO</p>
+    <div>
+      <Header />
+      
+      {/* Centered content */}
+      <div className={styles.centeredContent}>
+        <h2>Welcome to your professional examination dashboard where you can manage, administer, or conduct assessments with ease.</h2>
+        {/* Corrected Link component usage */}
+        <Link to="/user"><button className={styles.let}>Let's do it</button></Link>
       </div>
-      <section className={styles.macbookPro142Inner}>
-        <div className={styles.yourGotoAppForLoremIpsumParent}>
-          <h2 className={styles.yourGotoApp}>
-            Your Goto App For Lorem ipsum shgt shjdk sjhjd
-          </h2>
-          <FrameComponent />
-        </div>
-      </section>
+
+      {/* Image aligned to the left */}
+      <div className={styles.imageContainer}>
+        <img
+          className={styles.image}
+          loading="lazy"
+          alt="Professional Examination Dashboard"
+          src={img}
+        />
+      </div>
     </div>
   );
 };
 
-export default Home
+export default Home;
