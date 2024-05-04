@@ -13,7 +13,7 @@ const Home = () => {
       <div className={styles.centeredContent}>
         <h2>Welcome to your professional examination dashboard where you can manage, administer, or conduct assessments with ease.</h2>
         {/* Corrected Link component usage */}
-        <Link to="/user"><button className={styles.let}>Let's do it</button></Link>
+        <Link to="/particitant/userdashboard/Userdashoard"><button className={styles.let}>Let's do it</button></Link>
       </div>
 
       {/* Image aligned to the left */}
