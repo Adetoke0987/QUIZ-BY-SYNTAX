@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    width: 100vw;
+}
+
+.quest_options{
+   
+    background-color: rgb(255, 255, 255);
+    height: 600px;
+    width: 600px;
+    margin-left: 25%;
+    margin-top: 8%;
+    
+
+}
+
+.question{
+    text-align: center;
+
+}
+
+.currenQuest{
+    border: 2px solid #fcbe1f;
+    height: 30px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+    margin-top: 2%;
+    border-radius: 1px;
+    background-color:#fcbe1f;
+    color: white;
+}
+
+.currenQuest:hover{
+    background-color: #c98a00;
+    border: 2px solid #c98a00;;
+}
+
+.options{
+   
+    border-radius: 20px;
+    margin-top: 5%;
+}

@@ -1,52 +1,77 @@
-import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
-import Home from './pages/Home.jsx';
-import Userdashboard from "./pages/participant/userdashboard/Userdashboard.jsx";
-import MainLayout from './components/MainLayout.jsx';
-import Sidebar from './pages/participant/userdashboard/Side.jsx'; // Corrected import path
-import Profile from './pages/Profile.jsx';
-import Settings from './pages/Settings.jsx';
-import Logout from './pages/Logout.jsx';
+import { createBrowserRouter } from "react-router-dom/dist" 
+// import MainLayout from "./components/MainLayout"
+// import Side from "./pages/particitant/userdashboard/Side"
+import Userdashboard from "./pages/particitant/userdashboard/Userdashboard"
+import MainLayout from "./components/MainLayout"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Boxlayout from "./pages/particitant/userdashboard/Boxlayout"
+import Profile from "./pages/Profile"
+import Settings from "./pages/Settings"
+import SignInAs from "./pages/signInAs/SignInAs"
+import SignUp from "./pages/signUp/SignUp"
+import CreateQuestion from "./pages/admin/admindashboard/CreateQuestion"
+import Login from "./pages/login/Login"
+import DashboardMain from "./pages/admin/admindashboard/DashboardMain"
+import Accounting from "./questions/accounting/Accounting"
+import Result from "./pages/admin/admindashboard/Result"
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <MainLayout />, // Render MainLayout for the root path
-    children: [
-      {
-        path: '/userdashboard', // Main userdashboard route
-        element: <Userdashboard />, // Render Userdashboard component
+    {
+        path: "/",
+        element: <Home/>,
+    },
+    {
+        path:'/signInAs',
+        element:<SignInAs/>
+    },
+    {
+        path:'/signin',
+        element:<SignUp/>
+    },
+    {
+        path:'/login',
+        element:<Login/>
+    },
+    {
+        path:"/createQuiz",
+        element: <CreateQuestion/>
+    },
+    {
+        path: "/results",
+        element: <Result/>
+    },
+    {
+        path: "/admindashboard",
+        element: <DashboardMain/>
+    },
+    {
+        path: "/accounting",
+        element: <Accounting/>
+    },
+    {
+        path: "/userdashboard",
+        element: <Userdashboard/>,
         children: [
-          {
-            path: '/', // Nested home route (e.g., /userdashboard/)
-            element: <Sidebar />, // Render Sidebar within Userdashboard
-            children: [
-              {
-                index: true, // Default route within Sidebar
-                element: <Home /> // Render Home component
-              },
-              {
-                path: 'profile', // Nested profile route (e.g., /userdashboard/profile)
-                element: <Profile /> // Render Profile component
-              },
-              {
-                path: 'settings', // Nested settings route (e.g., /userdashboard/settings)
-                element: <Settings /> // Render Settings component
-              },
-              {
-                path: 'logout', // Nested logout route (e.g., /userdashboard/logout)
-                element: <Logout /> // Render Logout component
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    path: '*', // 404 Not Found page
-    element: <h1>Page not found</h1> // Render this element for unmatched paths
-  }
-]);
+            {
+                index: true,
+                element:<Boxlayout/>
+            },
+            {
+                path: "/userdashboard/profile",
+                element: <Profile/>
+            },
+            {
+                path: "/userdashboard/settings",
+                element: <Settings/>
+            },
+          
+        ]    
+    },
+    {
 
-export default router;
+    }
+
+])
+
+export default router
