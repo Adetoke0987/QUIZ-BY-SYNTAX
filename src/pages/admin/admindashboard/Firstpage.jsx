@@ -1,16 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react'
-
-const Firstpage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default Firstpage
-=======
 import React from 'react'
 import lag from './css/firstpage.module.css'
 
@@ -25,4 +12,3 @@ const Firstpage = () => {
 }
 
 export default Firstpage
->>>>>>> Stashed changes

@@ -12,8 +12,9 @@ const Side = () => {
   const menuItems = [
     { text: 'Home', link: '/', icon: '🏠' },
     { text: 'Profile', link: '/userdashboard/profile', icon: '👤' },
-    { text: 'Settings', link: '/userdashboard/settings', icon: '⚙️' },
+    { text: 'Quiz', link: '/userdashboard', icon: '❓' },
     {text:'Take Customized Quiz', link:"/userdashboard/takeQuiz",icon: "🚴‍♂️"},
+    { text: 'Settings', link: '/userdashboard/settings', icon: '⚙️' },
     { text: 'Logout', link: '/logout', icon: '🚪' }
   ];
 
