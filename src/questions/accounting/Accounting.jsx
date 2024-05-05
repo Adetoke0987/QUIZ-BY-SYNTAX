@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './acct.css'; // Import CSS file for styling
+import Results from '../../pages/Results'; // Adjust the import path based on your directory structure
 
 const Accounting = () => {
     const [loading, setLoading] = useState(true); // State to track loading state
@@ -10,6 +11,9 @@ const Accounting = () => {
     const [isCorrect, setIsCorrect] = useState(null); // State to track if the selected answer is correct
     const [score, setScore] = useState(0); // State to store the score
     const [wrongAnswers, setWrongAnswers] = useState(0); // State to store the number of wrong answers
+    const [isVisible, setIsVisible] = useState(true); // State to track if the question and options are visible
+    const [showResults, setShowResults] = useState(false); // State to track if the results should be shown
+    const [showRevealButton, setShowRevealButton] = useState(false); // State to track if the "Reveal Result" button should be shown
 
     useEffect(() => {
         fetch('https://questionsapi-1.onrender.com/api/quiz')
@@ -49,18 +53,23 @@ const Accounting = () => {
     const handleNextQuestion = () => {
         // Check if an answer is selected or timer reached 0
         if (selectedOption !== null || timer === 0) {
-            // Move to the next question if not the last question
-            if (currentQuestionIndex < questions.length - 1) {
-                setCurrentQuestionIndex(currentQuestionIndex + 1);
-                setSelectedOption(null); // Reset selected option
-                setTimer(10); // Reset timer for the next question
-            } else {
-                // If it's the last question, calculate and set the score
-                calculateScore();
-                setCurrentQuestionIndex(questions.length); // Set index to show result
-            }
-            // Reset isCorrect state for the next question
-            setIsCorrect(null);
+            setIsVisible(false); // Set visibility to false for fade-out animation
+            setTimeout(() => {
+                // Move to the next question if not the last question
+                if (currentQuestionIndex < questions.length - 1) {
+                    setCurrentQuestionIndex(currentQuestionIndex + 1);
+                    setSelectedOption(null); // Reset selected option
+                    setTimer(10); // Reset timer for the next question
+                    setIsVisible(true); // Set visibility to true for fade-in animation
+                } else {
+                    // If it's the last question, calculate and set the score
+                    calculateScore();
+                    setShowResults(true); // Set to show results
+                    setShowRevealButton(false); // Hide the "Reveal Result" button
+                }
+                // Reset isCorrect state for the next question
+                setIsCorrect(null);
+            }, 500); // Set a timeout to allow for the fade-out animation
         }
     };
 
@@ -87,20 +96,25 @@ const Accounting = () => {
         return <div>Loading...</div>;
     }
 
+    const revealResult = () => {
+        setShowResults(true);
+        setShowRevealButton(false); // Hide the "Reveal Result" button after clicking
+    };
+
     return (
         <div className="all_body">
-            <div className="instructions">
-                <p>You have {timer} seconds to answer each question.</p>
-            </div>
             <div id="logo"><h3>SYNTAX LOGO</h3></div>
+            <div className="instructions">
+                <p>You have <span id='timer'>{timer}</span> seconds to answer each question.</p>
+            </div>
             <div className="quest_options">
                 <div className="logo_questn">
-                    <div className="question">
+                    <div className="question" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease' }}>
                         <h2>{questions[currentQuestionIndex]?.question}</h2>
                         <div className='currenQuest'><h4>{`Question ${currentQuestionIndex + 1} of ${questions.length}`}</h4></div>
                     </div>
                 </div>
-                <div className="options">
+                <div className="options" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease' }}>
                     <div className="option-container">
                         <div className="optionContainer">
                             {questions[currentQuestionIndex]?.options.map((option, index) => (
@@ -125,6 +139,12 @@ const Accounting = () => {
                     Next
                 </button>
             </div>
+            {showResults && (
+                <Results score={score} wrongAnswers={wrongAnswers} />
+            )}
+            {showRevealButton && !showResults && (
+                <button className="reveal-result-button" onClick={revealResult}>Reveal Result</button>
+            )}
         </div>
     );
 }
