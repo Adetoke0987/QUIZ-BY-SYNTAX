@@ -10,7 +10,7 @@ const Userdashboard = () => {
   return (
     <div className="app-container">
       <Side /> {/* Render the Side component */}
-      <Outlet/>
+      <Boxlayout/>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './business.css'; // Import CSS file for styling
+import './businessAdmin.css'; // Import CSS file for styling
 import Results from '../../pages/Results'; // Adjust the import path based on your directory structure
 
 const BuinessAdmin = () => {
