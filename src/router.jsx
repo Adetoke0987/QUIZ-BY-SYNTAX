@@ -92,7 +92,8 @@ import Marketing from './questions/marketing/Marketing'
 import InformationTech from './questions/informationTech/InformationTech';
 import Logistics from './questions/logicstics/Logicstics'
 import Result from './pages/admin/admindashboard/Result';
-import ProjectManagement from './questions/projectManagement/ProjectManagement'
+import ProjectManagement from './questions/projectManagement/ProjectManagement';
+import Loading from './components/loading/Loading';
 
 
 
@@ -174,10 +175,10 @@ const router = createBrowserRouter([
 
     ]
   },
-  // {
-  //   path: '/loading',
-  //   element: <Loading />,
-  // },
+  {
+    path: '/loading',
+    element: <Loading />,
+  },
 ]);
 
 export default router;

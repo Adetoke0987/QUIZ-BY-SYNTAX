@@ -73,6 +73,10 @@ const Logicstics = () => {
         }
     };
 
+    const handleUncheckRadio = () => {
+        setSelectedOption(null);
+    };
+
     const calculateScore = () => {
         let correctAnswers = 0;
         let wrongAnswers = 0;
@@ -104,14 +108,15 @@ const Logicstics = () => {
     return (
         <div className="all_body">
             <div id="logo"><h3>SYNTAX LOGO</h3></div>
-            <div className="instructions">
-                <p>You have <span id='timer'>{timer}</span> seconds to answer each question.</p>
-            </div>
+           
+                {/* <p id='p'>You have <span id='timer'>{timer}</span> seconds to answer each question.</p> */}
+           
             <div className="quest_options">
                 <div className="logo_questn">
+                    <p id='p'>You have <span id='timer'>{timer}</span> seconds to answer each question.</p>
                     <div className="question" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease' }}>
                         <h2>{questions[currentQuestionIndex]?.question}</h2>
-                        <div className='currenQuest'><h4>{`Question ${currentQuestionIndex + 1} of ${questions.length}`}</h4></div>
+                        <div className='currenQuest'><h4 id='h4'>{`Question ${currentQuestionIndex + 1} of ${questions.length}`}</h4></div>
                     </div>
                 </div>
                 <div className="options" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.5s ease' }}>
@@ -119,18 +124,20 @@ const Logicstics = () => {
                         <div className="optionContainer">
                             {questions[currentQuestionIndex]?.options.map((option, index) => (
                                 <div className="option-item" key={index}>
-                                    <input
-                                        className="option-radio"
-                                        type="radio"
-                                        id={`option${index}`}
-                                        name="option"
-                                        value={index}
-                                        checked={selectedOption === index}
-                                        onChange={() => handleAnswerClick(index)}
-                                        disabled={selectedOption !== null}
-                                    />
-                                    <label className="option-label" htmlFor={`option${index}`}>{option}</label>
-                                </div>
+                                <input
+                                    className="option-radio"
+                                    type="radio"
+                                    id={`option${index}`}
+                                    name="option"
+                                    value={index}
+                                    checked={selectedOption === index}
+                                    onChange={() => handleAnswerClick(index)}
+                                    disabled={selectedOption !== null}
+                                />
+                                <label className="option-label" htmlFor={`option${index}`} onClick={handleUncheckRadio}>
+                                    {option}
+                                </label>
+                            </div>
                             ))}
                         </div>
                     </div>

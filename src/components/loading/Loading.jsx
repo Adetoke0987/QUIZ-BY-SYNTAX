@@ -27,7 +27,7 @@
 
 
 import React, { useState } from 'react';
-import './LoaderButton.css'; // Import your CSS file for styling
+import './loading.css'; // Import your CSS file for styling
 
 const Loading = () => {
     const [loading, setLoading] = useState(false);
