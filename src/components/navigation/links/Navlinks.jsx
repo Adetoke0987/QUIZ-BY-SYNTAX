@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavLinks = ({ to, label, icon }) => {
   return (
-    <NavLink to={to} activeClassName="active">
+    <NavLink to={to} activeClassName="active" className="link">
       <div>
         <span>{icon}</span>
         <span>{label}</span>

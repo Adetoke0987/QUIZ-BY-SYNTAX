@@ -1,19 +1,17 @@
-import react from 'react'
-import Firstpage from  './Firstpage'
+import React from 'react'; // Import React correctly
+import { Outlet } from 'react-router-dom'; // Import Outlet from 'react-router-dom'
+import Sidebar from '../../../components/navigation/sidenav/Sidebar';
+import styles from './css/dashboardmain.module.css'; // Import CSS module properly
 
-import old from './css/dashboardmain.module.css'
-// import Sidebar from '../../particitant/userdashboard/Sidebar'
-import Side from '../../particitant/userdashboard/Side'
-
-const DashboardMain = ()=>{
-    return(
+const DashboardMain = () => {
+    return (
         <>
-            <div classame={old.manny}>
-                <Side/>
-                <Firstpage/>
+            <div className={styles.manny}> {/* Fix the typo */}
+                <Sidebar />
+                <Outlet />
             </div>
-            
         </>
-    )
-}
-export default DashboardMain
+    );
+};
+
+export default DashboardMain;

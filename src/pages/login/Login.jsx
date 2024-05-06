@@ -5,17 +5,18 @@ import Admin from '../../assets/dashicons_admin-users.png';
 import Users from '../../assets/Vector.png';
 import Input from './Input';
 import { Link } from 'react-router-dom/dist';
+import img from '../../assets/quizz.png'
 
 const Login = () => {
     return (
         <div className='login'>
             <div className="right">
                 <div className="logo_adpart">
-                    <div id="logo"><h3>SYNTAX LOGO</h3></div>
+                    <div id="logo"><img src={img}/></div>
                     <div className="admin_part">
                         <button className="admin">
                             <img id='adminImg' src={Admin} alt="" />
-                            <Link to='/login'><h4 id='sign'>Sign in as Admin</h4></Link>
+                            <Link to='/signinadmin'><h4 id='sign'>Sign in as Admin</h4></Link>
                         </button>
 
                         <button className="part">

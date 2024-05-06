@@ -54,6 +54,11 @@ const Accounting = () => {
     const handleNextQuestion = () => {
         // Check if an answer is selected or timer reached 0
         if (selectedOption !== null || timer === 0) {
+            // Determine if the selected answer is correct
+            const correctAnswerIndex = questions[currentQuestionIndex].correctAnswer;
+            const isCorrect = selectedOption === correctAnswerIndex;
+            setIsCorrect(isCorrect);
+
             setIsVisible(false); // Set visibility to false for fade-out animation
             setTimeout(() => {
                 // Move to the next question if not the last question
@@ -84,7 +89,8 @@ const Accounting = () => {
 
         questions.forEach((question, index) => {
             if (selectedOption !== null) {
-                if (selectedOption === question.correctAnswer) {
+                const correctAnswerIndex = question.correctAnswer;
+                if (selectedOption === correctAnswerIndex) {
                     correctAnswers++;
                 } else {
                     wrongAnswers++;

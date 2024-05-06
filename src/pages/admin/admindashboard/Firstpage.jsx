@@ -1,15 +1,14 @@
+import React from 'react';
+import styles from './css/firstpage.module.css';
 
-import React from 'react'
-import lag from './css/firstpage.module.css'
+const Firstpage = ({ adminEmail }) => {
+    return (
+        <div className={styles.first}>
+            <div className={styles.second}>
+                <h2>Welcome, {adminEmail}</h2>
+            </div>
+        </div>
+    );
+};
 
-const Firstpage = () => {
-  return (
-    <div className={lag.first}>
-      <div className={lag.second}>
-        <h2>Dashboard</h2>
-      </div>
-    </div>
-  )
-}
-
-export default Firstpage
+export default Firstpage;

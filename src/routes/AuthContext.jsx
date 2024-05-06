@@ -1,18 +1,27 @@
-import React, {createContext, useState, useContext} from 'react';
+// AuthContext.js
+import React, { createContext, useState, useContext } from 'react';
 
-const AuthContext= createContext(null);
+const AuthContext = createContext(null);
 
-export const AuthProvider = ({children})=>{
-    const [userRole, setUserRole]= useState('normal');
+export const AuthProvider = ({ children }) => {
+    const [userRole, setUserRole] = useState('normal');
+    const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
-    const loginAsAdmin = ()=> setUserRole('admin')
-    const logout = ()=> setUserRole('normal');
+    const loginAsAdmin = () => {
+        setUserRole('admin');
+        setIsAdminLoggedIn(true);
+    };
 
-    return(
-        <AuthContext.Provider value={{userRole, loginAsAdmin, logout}}>
+    const logout = () => {
+        setUserRole('normal');
+        setIsAdminLoggedIn(false);
+    };
+
+    return (
+        <AuthContext.Provider value={{ userRole, loginAsAdmin, logout, isAdminLoggedIn }}>
             {children}
         </AuthContext.Provider>
-    )
-}
+    );
+};
 
-export const useAuth = ()=> useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext);

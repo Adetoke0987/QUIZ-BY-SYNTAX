@@ -1,83 +1,8 @@
-// import { createBrowserRouter } from "react-router-dom/dist" 
-// import Userdashboard from "./pages/particitant/userdashboard/Userdashboard"
-// import MainLayout from "./components/MainLayout"
-// import Home from "./pages/Home"
-// import About from "./pages/About"
-// import Boxlayout from "./pages/particitant/userdashboard/Boxlayout"
-// import Profile from "./pages/Profile"
-// import Settings from "./pages/Settings"
-// import SignInAs from "./pages/signInAs/SignInAs"
-// import SignUp from "./pages/signUp/SignUp"
-// import CreateQuestion from "./pages/admin/admindashboard/CreateQuestion"
-// import Login from "./pages/login/Login"
-// import DashboardMain from "./pages/admin/admindashboard/DashboardMain"
-// import Accounting from "./questions/accounting/Accounting"
-// import Result from "./pages/admin/admindashboard/Result"
-
-// const router = createBrowserRouter([
-//     {
-//         path: "/",
-//         element: <Home/>,
-//     },
-//     {
-//         path:'/signInAs',
-//         element:<SignInAs/>
-//     },
-//     {
-//         path:'/signin',
-//         element:<SignUp/>
-//     },
-//     {
-//         path:'/login',
-//         element:<Login/>
-//     },
-//     {
-//         path:"/createQuiz",
-//         element: <CreateQuestion/>
-//     },
-//     {
-//         path: "/results",
-//         element: <Result/>
-//     },
-//     {
-//         path: "/admindashboard",
-//         element: <DashboardMain/>
-//     },
-//     {
-//         path: "/accounting",
-//         element: <Accounting/>
-//     },
-//     {
-//         path: "/userdashboard",
-//         element: <Userdashboard/>,
-//         children: [
-//             {
-//                 index: true,
-//                 element:<Boxlayout/>
-//             },
-//             {
-//                 path: "/userdashboard/profile",
-//                 element: <Profile/>
-//             },
-//             {
-//                 path: "/userdashboard/settings",
-//                 element: <Settings/>
-//             },
-          
-//         ]    
-//     },
-//     {
-
-//     }
-
-// ])
-
-// export default router
 
 
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import ProtectedRoute from './routes/ProtectedRoute';
+// import ProtectedRoute from './routes/ProtectedRoute';
 import Userdashboard from './pages/particitant/userdashboard/Userdashboard';
 import MainLayout from './components/MainLayout';
 import Home from './pages/Home';
@@ -94,6 +19,13 @@ import Logistics from './questions/logicstics/Logicstics'
 import Result from './pages/admin/admindashboard/Result';
 import ProjectManagement from './questions/projectManagement/ProjectManagement';
 import Loading from './components/loading/Loading';
+import Admin from './pages/admin/admindashboard/Admin';
+import SignInAdmin from './pages/signInAdmin/SignInAdmin';
+import LogoutAdmin from './pages/admin/admindashboard/LogoutAdmin';
+import AddUser from './pages/admin/admindashboard/AddUser';
+import DeleteUser from './pages/admin/admindashboard/DeleteUser';
+import Settings from './pages/admin/admindashboard/Settings';
+import ViewUsers from './pages/admin/admindashboard/ViewUsers';
 
 
 
@@ -115,7 +47,10 @@ const router = createBrowserRouter([
     element: <Login />,
   },
  
-  
+  {
+    path: '/signinadmin',
+    element: <SignInAdmin/>,
+  },
   {
     path: '/accounting',
     element: <Accounting/>,
@@ -154,15 +89,15 @@ const router = createBrowserRouter([
   {
     path: '/admin',
     element: (
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <DashboardMain/>
-      </ProtectedRoute>
+      // </ProtectedRoute>
     ),
     children:[
-      // {
-      //   path: '/admin/settings',
-      //   element: <Settings/>,
-      // },
+      {
+        index: true,
+        element: <Admin/>
+      },
       {
         path: '/admin/createQuiz',
         element: <CreateQuestion />,
@@ -171,7 +106,26 @@ const router = createBrowserRouter([
         path: '/admin/results',
         element: <Result/>,
       },
-      
+      {
+        path : '/admin/addUser',
+        element: <AddUser/>
+      },
+      {
+        path: '/admin/viewuser',
+        element: <ViewUsers/>
+      },
+      {
+        path : '/admin/deleteUser',
+        element: <DeleteUser/>
+      },
+      {
+        path: "/admin/logout",
+        element : <LogoutAdmin/>
+      },
+      {
+        path: '/admin/settings',
+        element: <Settings/>
+      },
 
     ]
   },
