@@ -111,7 +111,7 @@ const router = createBrowserRouter([
         element: <AddUser/>
       },
       {
-        path: '/admin/viewuser',
+        path: '/admin/viewusers',
         element: <ViewUsers/>
       },
       {

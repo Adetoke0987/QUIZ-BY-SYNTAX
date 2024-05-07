@@ -2,6 +2,7 @@ import React from 'react';
 import LoginImage from '../../assets/imageLogin.png'
 import './signinadmin.css';
 import Admin from '../../assets/dashicons_admin-users.png';
+import Input from './Input';
 import Users from '../../assets/Vector.png';
 import { Link } from 'react-router-dom/dist';
 import img from '../../assets/quizz.png'
@@ -23,6 +24,7 @@ const SignInAs = () => {
                         </button>
                     </div>
                 </div>
+                <div className="input"><Input  /></div>
             </div>
 
             <div className="left">

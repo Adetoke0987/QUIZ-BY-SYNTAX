@@ -18,8 +18,8 @@ const Sidebar = () => {
           <NavLinks to="/admin/addUser" icon={<FaUserPlus />} label="Add User" />
           <NavLinks to="/admin/deleteUser" icon={<FaUserMinus />} label="Delete User" />
           <NavLinks to="/admin/settings" icon={<FaCog />} label="Settings" />
-          <NavLinks to="/admin/viewUsers" icon={<FaUser />} label="View Users" />
-          <NavLinks to="/admin/logout" label="Logout" /> {/* Link directly to logout route */}
+          <NavLinks to="/admin/viewusers" icon={<FaUser />} label="View Users" />
+          <NavLinks to="/admin/logout" label="Logout" />
         </div>
       </div>
     </div>
